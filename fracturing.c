@@ -4,27 +4,27 @@
 
 #include <stdio.h>
 #include <math.h>
+
 #define PI 3.14159
 
-// defining the variables , so they dont have to be called as arguments
-double x_1, x_2, y_1, y_2;
 
-void askForUserInput() // ask for the user input
+double askForUserInput() // ask for the user input
 {
-    printf("Enter your x_1 value: ");
+    // defining the variables , so they dont have to be called as arguments
+    double x_1;
+    printf("Enter your value: ");
     scanf("%lf", &x_1);
-    printf("Enter your y_1 value: ");
-    scanf("%lf", &y_1);
-    printf("Enter your x_2 value: ");
-    scanf("%lf", &x_2);
-    printf("Enter your y_2 value: ");
-    scanf("%lf", &y_2);
+    return x_1;
 }
 
 double calculateDistance() // calculating distance
 {
+    double x_1 = askForUserInput();
+    double x_2 = askForUserInput();
+    double y_1 = askForUserInput();
+    double y_2 = askForUserInput();
+
     double distance = sqrt(pow(x_2 - x_1, 2) + pow(y_2 - y_1, 2)); // calculating the distance using the distance formula
-    printf("The distance between the two points is: %lf\n", distance);
     return distance;
 }
 
@@ -48,6 +48,9 @@ double calculateArea() // calculating the area
 
 double calculateWidth() // calculating the width
 {
+    double x_1 = askForUserInput();
+    double x_2 = askForUserInput();
+    
     double width = x_2 - x_1;
     printf("The width of the city encompassed by your request is: %lf\n", width);
     return 3;
@@ -55,6 +58,9 @@ double calculateWidth() // calculating the width
 
 double calculateHeight() // calculating the height
 {
+    double y_1 = askForUserInput();
+    double y_2 = askForUserInput();
+
     double height = y_2 - y_1;
     printf("The height of the city encompassed by your request is: %lf\n", height);
     return 3;
@@ -62,8 +68,8 @@ double calculateHeight() // calculating the height
 
 int main() // main function where all other functions are called into
 {
-    askForUserInput();
-    calculateDistance();
+    double d = calculateDistance();
+    printf("The distance between the two points is: %lf\n", d);
     calculatePerimeter();
     calculateArea();
     calculateWidth();
